@@ -13,11 +13,11 @@ namespace ConsoleApp1.Tests
         public void SplitMoneyTest()
         {
             //注入測試用類別實作
-            Financy f = new Financy(new FakeCurrencyConverter());
+            Financy f = new Financy();
+            f.CurrencyConverter = new CurrencyConverterFake();
             var CostByPeople = f.SplitMoney(100, 5);
             Assert.IsTrue(CostByPeople.ToString().StartsWith("553.444"));
         }
-
 
     }
 }

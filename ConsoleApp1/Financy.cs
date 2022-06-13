@@ -6,17 +6,8 @@ namespace ConsoleApp1
 {
     public class Financy
     {
-        //加入建構子注入
-        ICurrencyConverter _CurrencyConverter;
-        public Financy(ICurrencyConverter currencyConverter)
-        {
-            _CurrencyConverter = currencyConverter;
-        }
-        public Financy()
-        {
-            //預設狀況下，用標準類別
-            _CurrencyConverter = new CurrencyConverter();
-        }
+        private CurrencyConverter _CurrencyConverter = new CurrencyConverter();
+        public CurrencyConverter CurrencyConverter { get => _CurrencyConverter; set => _CurrencyConverter = value; }
 
         public double USD2TWD(double amount)
         {
